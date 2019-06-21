@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.9",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "yarn": "^1.16.0"
   },
   "devDependencies": {

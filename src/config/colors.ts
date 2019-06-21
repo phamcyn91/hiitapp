@@ -7,7 +7,8 @@ const colors = {
     MISCHKA: "#E5E4E6",
     LIGHT_GRAY: "#D3D3D3",
     ORANGE: "#f58426",
-    NEW_ORANGE: "#f94f1b",
+    NEW_ORANGE: "#f35606",
+    BLUE: "#358e92",
     LIGHT_BLUE: "#4ac2c9"
 };
 

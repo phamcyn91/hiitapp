@@ -3,8 +3,7 @@ import {
     Image,
     KeyboardAvoidingView,
     StyleSheet,
-    View,
-    StatusBar
+    View
 } from "react-native";
 import Button from "../components/Button";
 import FormTextInput from "../components/FormTextInput";
@@ -63,14 +62,6 @@ class LoginScreen extends React.Component<{}, State> {
             emailTouched,
             passwordTouched
         } = this.state;
-        const emailError =
-            !email && emailTouched
-                ? strings.EMAIL_REQUIRED
-                : undefined;
-        const passwordError =
-            !password && passwordTouched
-                ? strings.PASSWORD_REQUIRED
-                : undefined;
         return (
             <KeyboardAvoidingView
                 style={styles.container}
@@ -85,12 +76,11 @@ class LoginScreen extends React.Component<{}, State> {
                         value={this.state.email}
                         onChangeText={this.handleEmailChange}
                         onSubmitEditing={this.handleEmailSubmitPress}
-                        placeholder={strings.EMAIL_PLACEHOLDER}
                         autoCorrect={false}
                         keyboardType="email-address"
                         returnKeyType="next"
                         onBlur={this.handleEmailBlur}
-                        error={emailError}
+                        label={strings.EMAIL_PLACEHOLDER}
                         // `blurOnSubmit` causes a keyboard glitch on
                         // Android when we want to manually focus the
                         // next input.
@@ -100,16 +90,14 @@ class LoginScreen extends React.Component<{}, State> {
                         ref={this.passwordInputRef}
                         value={this.state.password}
                         onChangeText={this.handlePasswordChange}
-                        placeholder={strings.PASSWORD_PLACEHOLDER}
                         secureTextEntry={true}
                         returnKeyType="done"
                         onBlur={this.handlePasswordBlur}
-                        error={passwordError}
+                        label={strings.PASSWORD_PLACEHOLDER}
                     />
                     <Button
                         label={strings.LOGIN}
                         onPress={this.handleLoginPress}
-                        disabled={!email || !password}
                     />
                 </View>
             </KeyboardAvoidingView>
@@ -120,10 +108,10 @@ class LoginScreen extends React.Component<{}, State> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingVertical: 30,
         backgroundColor: colors.WHITE,
         alignItems: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        paddingVertical: 20
     },
     logo: {
         flex: 1,
